@@ -12,6 +12,13 @@ function getComputerChoice() {
   }
 }
 
+function getHumanChoice() {
+  let humanChoice;
+  const message = "Enter one of the following: rock, paper, scissors";
+  humanChoice = prompt(message);
+  return humanChoice.toLowerCase();
+}
+
 console.log(`Rock Paper Scissors`);
 
 console.log(`computerChoice = ${getComputerChoice()}`);
@@ -24,3 +31,5 @@ console.log(`computerChoice = ${getComputerChoice()}`);
 console.log(`computerChoice = ${getComputerChoice()}`);
 console.log(`computerChoice = ${getComputerChoice()}`);
 console.log(`computerChoice = ${getComputerChoice()}`);
+
+console.log(getHumanChoice());
