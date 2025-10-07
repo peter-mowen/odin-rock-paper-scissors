@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random()*3);
 
@@ -18,23 +21,3 @@ function getHumanChoice() {
   humanChoice = prompt(message);
   return humanChoice.toLowerCase();
 }
-
-console.log(`Rock Paper Scissors`);
-
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-console.log(`computerChoice = ${getComputerChoice()}`);
-
-console.log(getHumanChoice());
-
-let humanScore = 0;
-let computerScore = 0;
-
-console.log(`humanScore = ${humanScore}, computerScore = ${computerScore}`);
