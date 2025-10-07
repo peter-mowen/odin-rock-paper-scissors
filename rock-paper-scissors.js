@@ -19,6 +19,16 @@ function getHumanChoice() {
   return humanChoice.toLowerCase();
 }
 
+const paperBeatsRock = "paper covers rock";
+const rockBeatsScissors = "rock smashes scissors";
+const scissorBeatsPaper = "scissors cut paper";
+
+function logResults(bWinOrLoose, phrase)
+{
+  let winOrLose = bWinOrLoose ? "win" : "lose";
+  console.log(`${phrase}! You ${winOrLose}`)
+}
+
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
@@ -28,27 +38,27 @@ function playGame() {
       console.log(`It's a tie!`);
     } else if ("rock" === humanChoice) {
       if ("paper" === computerChoice) {
-        console.log("paper covers rock! You lose!");
+        logResults(false, paperBeatsRock);
         computerScore++;
       }
       else if ("scissors" === computerChoice) {
-        console.log("rock smashes scissors! You win!");
+        logResults(true, rockBeatsScissors);
         humanScore++;
       }
     } else if ("paper" === humanChoice) {
       if ("scissors" === computerChoice) {
-        console.log("scissors cut paper! You lose!");
+        logResults(false, scissorBeatsPaper);
         computerScore++;
       } else if ("rock" === computerChoice) {
-        console.log("paper covers rock! You win!");
+        logResults(true, paperBeatsRock);
         humanScore++;
       }
     } else if ("scissors" === humanChoice) {
       if ("rock" === computerChoice) {
-        console.log("You lose! rocker smashes scissors");
+        logResults(false, rockBeatsScissors);
         computerScore++;
       } else if ("paper" === computerChoice) {
-        console.log("scissors cut paper! You win!")
+        logResults(true, scissorBeatsPaper);
         humanScore++;
       }
     }
@@ -74,11 +84,11 @@ function playGame() {
   console.log(`Final score - You : ${humanScore}, Computer: ${computerScore}`);
 
   if (humanScore > computerScore) {
-    console.log("Congratualions! You win!");
+    console.log("Congratulations, you win!");
   } else if (humanScore === computerScore) {
     console.log("It's a tie!");
   } else {
-    console.log("Better luck next time! You lose!");
+    console.log("Better luck next time, you lose!");
   }
 }
 
