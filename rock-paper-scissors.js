@@ -16,7 +16,12 @@ function getHumanChoice() {
   let humanChoice;
   const message = "Enter one of the following: rock, paper, scissors";
   humanChoice = prompt(message);
-  return humanChoice.toLowerCase();
+
+  if (humanChoice) {
+    return humanChoice.toLowerCase();
+  } else {
+    return "";
+  }
 }
 
 const paperBeatsRock = "paper covers rock";
