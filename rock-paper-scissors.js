@@ -28,10 +28,10 @@ const paperBeatsRock = "paper covers rock";
 const rockBeatsScissors = "rock smashes scissors";
 const scissorBeatsPaper = "scissors cut paper";
 
-function logResults(bWinOrLoose, phrase)
+function logRoundResults(bWinOrLoose, phrase)
 {
   let winOrLose = bWinOrLoose ? "win" : "lose";
-  console.log(`${phrase}! You ${winOrLose}`)
+  console.log(`${phrase}! You ${winOrLose} this round!`)
 }
 
 function playGame() {
@@ -43,27 +43,27 @@ function playGame() {
       console.log(`It's a tie!`);
     } else if ("rock" === humanChoice) {
       if ("paper" === computerChoice) {
-        logResults(false, paperBeatsRock);
+        logRoundResults(false, paperBeatsRock);
         computerScore++;
       }
       else if ("scissors" === computerChoice) {
-        logResults(true, rockBeatsScissors);
+        logRoundResults(true, rockBeatsScissors);
         humanScore++;
       }
     } else if ("paper" === humanChoice) {
       if ("scissors" === computerChoice) {
-        logResults(false, scissorBeatsPaper);
+        logRoundResults(false, scissorBeatsPaper);
         computerScore++;
       } else if ("rock" === computerChoice) {
-        logResults(true, paperBeatsRock);
+        logRoundResults(true, paperBeatsRock);
         humanScore++;
       }
     } else if ("scissors" === humanChoice) {
       if ("rock" === computerChoice) {
-        logResults(false, rockBeatsScissors);
+        logRoundResults(false, rockBeatsScissors);
         computerScore++;
       } else if ("paper" === computerChoice) {
-        logResults(true, scissorBeatsPaper);
+        logRoundResults(true, scissorBeatsPaper);
         humanScore++;
       }
     }
