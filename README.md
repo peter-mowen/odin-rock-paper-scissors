@@ -14,4 +14,4 @@ This is my implementation of the ["Project: Rock Paper Scissors"](https://www.th
 
 Go the the
 [live preview](https://peter-mowen.github.io/odin-rock-paper-scissors/)and open
-Developer Tools in your browser to play.
+to play.

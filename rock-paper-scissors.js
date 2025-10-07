@@ -28,56 +28,62 @@ const paperBeatsRock = "paper covers rock";
 const rockBeatsScissors = "rock smashes scissors";
 const scissorBeatsPaper = "scissors cut paper";
 
-function logRoundResults(bWinOrLoose, phrase)
+function buildRoundMessage(bWinOrLoose, phrase)
 {
   let winOrLose = bWinOrLoose ? "win" : "lose";
-  console.log(`${phrase}! You ${winOrLose} this round!`)
+  return `${phrase}! You ${winOrLose} this round!`;
 }
 
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  let roundMessage = "";
 
   function scoreRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      console.log(`It's a tie!`);
+      roundMessage = `It's a tie!`;
     } else if ("rock" === humanChoice) {
       if ("paper" === computerChoice) {
-        logRoundResults(false, paperBeatsRock);
+        roundMessage = buildRoundMessage(false, paperBeatsRock);
         computerScore++;
       }
       else if ("scissors" === computerChoice) {
-        logRoundResults(true, rockBeatsScissors);
+        roundMessage = buildRoundMessage(true, rockBeatsScissors);
         humanScore++;
       }
     } else if ("paper" === humanChoice) {
       if ("scissors" === computerChoice) {
-        logRoundResults(false, scissorBeatsPaper);
+        roundMessage = buildRoundMessage(false, scissorBeatsPaper);
         computerScore++;
       } else if ("rock" === computerChoice) {
-        logRoundResults(true, paperBeatsRock);
+        roundMessage = buildRoundMessage(true, paperBeatsRock);
         humanScore++;
       }
     } else if ("scissors" === humanChoice) {
       if ("rock" === computerChoice) {
-        logRoundResults(false, rockBeatsScissors);
+        roundMessage = buildRoundMessage(false, rockBeatsScissors);
         computerScore++;
       } else if ("paper" === computerChoice) {
-        logRoundResults(true, scissorBeatsPaper);
+        roundMessage = buildRoundMessage(true, scissorBeatsPaper);
         humanScore++;
       }
     }
-    return;
+    return roundMessage;
   }
 
   function playRound() {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
+    const roundMessage = scoreRound(humanChoice, computerChoice);
 
-    console.log("Rock...Paper...Scissors...Shoot!");
-    console.log(`You threw ${humanChoice} and the computer threw ${computerChoice}`);
-    scoreRound(humanChoice, computerChoice);
-    console.log(`Current score - You: ${humanScore}, Computer: ${computerScore}`);
+    alert(
+`Rock...Paper...Scissors...Shoot!
+
+You threw ${humanChoice} and the computer threw ${computerChoice}
+${roundMessage}
+
+Current score - You: ${humanScore}, Computer: ${computerScore}`
+    );
   }
 
   playRound();
@@ -86,15 +92,21 @@ function playGame() {
   playRound();
   playRound();
   
-  console.log(`Final score - You : ${humanScore}, Computer: ${computerScore}`);
+  let finalMessage = "";
 
   if (humanScore > computerScore) {
-    console.log("Congratulations, you win!");
+    finalMessage = "Congratulations, you win!";
   } else if (humanScore === computerScore) {
-    console.log("It's a tie!");
+    finalMessage = "It's a tie!";
   } else {
-    console.log("Better luck next time, you lose!");
+    finalMessage = "Better luck next time, you lose!";
   }
+
+  alert(
+`Final score - You : ${humanScore}, Computer: ${computerScore}
+${finalMessage}`
+  );
+
 }
 
 playGame();
