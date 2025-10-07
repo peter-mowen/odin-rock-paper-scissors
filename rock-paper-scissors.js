@@ -33,3 +33,8 @@ console.log(`computerChoice = ${getComputerChoice()}`);
 console.log(`computerChoice = ${getComputerChoice()}`);
 
 console.log(getHumanChoice());
+
+let humanScore = 0;
+let computerScore = 0;
+
+console.log(`humanScore = ${humanScore}, computerScore = ${computerScore}`);
