@@ -13,5 +13,4 @@ This is my implementation of the ["Project: Rock Paper Scissors"](https://www.th
 > five times. This will get fixed later when I learn about loops.
 
 Go the the
-[live preview](https://peter-mowen.github.io/odin-rock-paper-scissors/)and open
-to play.
+[live preview](https://peter-mowen.github.io/odin-rock-paper-scissors/) to play.
