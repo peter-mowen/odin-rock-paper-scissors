@@ -2,9 +2,9 @@
 
 [ ] Write HTML for page layout
     [x] Title and Subtitle
-    [ ] Scoreboard
-        [ ] Human and Computer
-        [ ] Scores start at 0
+    [x] Scoreboard
+        [x] Human and Computer
+        [x] Scores start at 0
     [ ] Button panel
         [ ] Visible Buttons for ROCK, PAPER, and SCISSORS
         [ ] Invisible button for PLAY AGAIN
