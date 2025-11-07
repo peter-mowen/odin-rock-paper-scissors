@@ -1,7 +1,7 @@
 # Rock Paper Scissors UI Work Breakdown Structure
 
 [ ] Write HTML for page layout
-    [ ] Title and Subtitle
+    [x] Title and Subtitle
     [ ] Scoreboard
         [ ] Human and Computer
         [ ] Scores start at 0
