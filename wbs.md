@@ -5,9 +5,8 @@
     [x] Scoreboard
         [x] Human and Computer
         [x] Scores start at 0
-    [ ] Button panel
-        [ ] Visible Buttons for ROCK, PAPER, and SCISSORS
-        [ ] Invisible button for PLAY AGAIN
+    [x] Button panel
+        [x] Buttons for ROCK, PAPER, and SCISSORS
     [ ] Game History
 [ ] Add styling
     [ ] Large numbers for scoreboard
@@ -19,10 +18,10 @@
         [ ] Update scoreboard
         [ ] Update Game History with round message
         [ ] When someone gets 5 points, the game is over
-            [ ] Hide ROCK, PAPER, SCISSORS buttons
-            [ ] Make the PLAY AGAIN button visible
+            [ ] Remove ROCK, PAPER, SCISSORS buttons
+            [ ] Add the PLAY AGAIN button
     [ ] On PLAY AGAIN
         [ ] Reset the score
         [ ] Reset the game history
-        [ ] Make the ROCK, PAPER, and SCISSORS buttons visible
-        [ ] Hide the PLAY AGAIN button
+        [ ] Add the ROCK, PAPER, and SCISSORS buttons
+        [ ] Remove the PLAY AGAIN button
