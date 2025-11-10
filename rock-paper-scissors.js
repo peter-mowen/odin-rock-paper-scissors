@@ -32,24 +32,6 @@ function buildRoundMessage(bWinOrLoose, phrase)
   return `${phrase}! You ${winOrLose} this round!`;
 }
 
-function playGame() {  
-  let finalMessage = "";
-
-  if (humanScore > computerScore) {
-    finalMessage = "Congratulations, you win!";
-  } else if (humanScore === computerScore) {
-    finalMessage = "It's a tie!";
-  } else {
-    finalMessage = "Better luck next time, you lose!";
-  }
-
-  alert(
-`Final score - You : ${humanScore}, Computer: ${computerScore}
-${finalMessage}`
-  );
-
-}
-
 function updateScoreboard() {
   humanScoreElement.textContent = humanScore;
   computerScoreElement.textContent = computerScore;
@@ -92,6 +74,22 @@ function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
   return roundMessage;
 }
 
+function getFinalMessage() {
+  let finalMessage = `<p>Final score - You : ${humanScore}, Computer: ${computerScore}</p>\n`;
+
+  finalMessage += "<p>";
+
+  if (humanScore === 5) {
+    finalMessage += "Congratulations, you win!";
+  } else {
+    finalMessage += "Better luck next time, you lose!";
+  }
+
+  finalMessage += "</p>";
+
+  return finalMessage;
+}
+
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
   const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
@@ -106,6 +104,12 @@ function playRound(humanChoice) {
   let gameHistory = document.querySelector('#game-history-body');
 
   gameHistory.innerHTML = historyText + gameHistory.innerHTML;
+
+  if ((humanScore === 5) || (computerScore == 5)) {
+    let finalMessage = getFinalMessage();
+
+    gameHistory.innerHTML = finalMessage + gameHistory.innerHTML;
+  }
 }
 
 let buttonPanel = document.querySelector('#button-panel');
