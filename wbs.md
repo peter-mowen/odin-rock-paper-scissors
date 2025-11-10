@@ -8,7 +8,7 @@
     [x] Button panel
         [x] Buttons for ROCK, PAPER, and SCISSORS
     [x] Game History
-[ ] Add styling
+[x] Add styling
     [x] Large numbers for scoreboard
     [x] Center content on page
     [x] Amber glow text color
