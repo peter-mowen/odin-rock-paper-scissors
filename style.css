@@ -21,6 +21,10 @@ button:hover {
   color: black;
 }
 
+#button-panel {
+  margin: 20px;
+}
+
 .scoreboard {
   text-align: center;
   border-collapse: collapse;
