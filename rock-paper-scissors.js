@@ -29,30 +29,7 @@ function buildRoundMessage(bWinOrLoose, phrase)
   return `${phrase}! You ${winOrLose} this round!`;
 }
 
-function playGame() {
-  let roundMessage = "";
-
-  function playRound() {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
-
-    alert(
-`Rock...Paper...Scissors...Shoot!
-
-You threw ${humanChoice} and the computer threw ${computerChoice}
-${roundMessage}
-
-Current score - You: ${humanScore}, Computer: ${computerScore}`
-    );
-  }
-
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  
+function playGame() {  
   let finalMessage = "";
 
   if (humanScore > computerScore) {
