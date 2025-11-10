@@ -32,7 +32,7 @@ function playGame() {
   function playRound() {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
-    const roundMessage = scoreRound(humanChoice, computerChoice);
+    const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
 
     alert(
 `Rock...Paper...Scissors...Shoot!
@@ -67,11 +67,16 @@ ${finalMessage}`
 
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function updateScores(humanScore, computerScore) {
+  document.querySelector('#human-score').textContent = humanScore;
+  document.querySelector('#computer-score').textContent = computerScore;
+}
 
-function scoreRound(humanChoice, computerChoice) {
+function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
   let roundMessage = "";
+  let humanScore = Number(document.querySelector('#human-score').textContent);
+  let computerScore = Number(document.querySelector('#computer-score').textContent);
+
   if (humanChoice === computerChoice) {
     roundMessage = `It's a tie!`;
   } else if (ROCK === humanChoice) {
@@ -100,12 +105,15 @@ function scoreRound(humanChoice, computerChoice) {
       humanScore++;
     }
   }
+
+  updateScores(humanScore, computerScore);
+
   return roundMessage;
 }
 
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
-  const roundMessage = scoreRound(humanChoice, computerChoice);
+  const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
 
   const historyText =
 `<p>---</p>
@@ -114,15 +122,9 @@ function playRound(humanChoice) {
 <p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
 <p>${roundMessage}</p>`;
 
-  console.log(historyText);
-
   let gameHistory = document.querySelector('#game-history-body');
 
-  gameHistory.innerHTML =
-`${historyText}
-${gameHistory.innerHTML}
-`
-  console.log(gameHistory.innerHTML);
+  gameHistory.innerHTML = historyText + gameHistory.innerHTML;
 }
 
 let buttonPanel = document.querySelector('#button-panel');

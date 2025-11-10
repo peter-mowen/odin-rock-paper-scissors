@@ -17,11 +17,11 @@
     [x] Round button corners
     [x] Monospaced font
 [ ] Write Javascript logic
-    [ ] On button click, play round by passing player choice to game
+    [x] On button click, play round by passing player choice to game
     [ ] On play round
-        [ ] Determine winner
-        [ ] Update scoreboard
-        [ ] Update Game History with round message
+        [x] Determine winner
+        [x] Update scoreboard
+        [x] Update Game History with round message
         [ ] When someone gets 5 points, the game is over
             [ ] Remove ROCK, PAPER, SCISSORS buttons
             [ ] Add the PLAY AGAIN button
