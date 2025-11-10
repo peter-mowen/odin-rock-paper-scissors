@@ -1,32 +1,24 @@
+const ROCK = "ROCK";
+const PAPER = "PAPER";
+const SCISSORS = "SCISSORS";
+
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random()*3);
 
   if (0 === computerChoice) {
-    return "rock";
+    return ROCK;
   } else if (1 === computerChoice) {
-    return "paper";
+    return PAPER;
   } else if (2 === computerChoice) {
-    return "scissors";
+    return SCISSORS;
   } else {
     return null;
   }
 }
 
-function getHumanChoice() {
-  let humanChoice;
-  const message = "Enter one of the following: rock, paper, scissors";
-  humanChoice = prompt(message);
-
-  if (humanChoice) {
-    return humanChoice.toLowerCase();
-  } else {
-    return "";
-  }
-}
-
-const paperBeatsRock = "paper covers rock";
-const rockBeatsScissors = "rock smashes scissors";
-const scissorBeatsPaper = "scissors cut paper";
+const PAPER_BEATS_ROCK = `${PAPER} covers ${ROCK}`;
+const ROCK_BEATS_SCISSORS = `${ROCK} smashes ${SCISSORS}`;
+const SCISSORS_BEATS_PAPER = `${SCISSORS} cut ${PAPER}`;
 
 function buildRoundMessage(bWinOrLoose, phrase)
 {
@@ -35,41 +27,7 @@ function buildRoundMessage(bWinOrLoose, phrase)
 }
 
 function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
   let roundMessage = "";
-
-  function scoreRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-      roundMessage = `It's a tie!`;
-    } else if ("rock" === humanChoice) {
-      if ("paper" === computerChoice) {
-        roundMessage = buildRoundMessage(false, paperBeatsRock);
-        computerScore++;
-      }
-      else if ("scissors" === computerChoice) {
-        roundMessage = buildRoundMessage(true, rockBeatsScissors);
-        humanScore++;
-      }
-    } else if ("paper" === humanChoice) {
-      if ("scissors" === computerChoice) {
-        roundMessage = buildRoundMessage(false, scissorBeatsPaper);
-        computerScore++;
-      } else if ("rock" === computerChoice) {
-        roundMessage = buildRoundMessage(true, paperBeatsRock);
-        humanScore++;
-      }
-    } else if ("scissors" === humanChoice) {
-      if ("rock" === computerChoice) {
-        roundMessage = buildRoundMessage(false, rockBeatsScissors);
-        computerScore++;
-      } else if ("paper" === computerChoice) {
-        roundMessage = buildRoundMessage(true, scissorBeatsPaper);
-        humanScore++;
-      }
-    }
-    return roundMessage;
-  }
 
   function playRound() {
     const humanChoice = getHumanChoice();
@@ -108,5 +66,66 @@ ${finalMessage}`
   );
 
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
+function scoreRound(humanChoice, computerChoice) {
+  let roundMessage = "";
+  if (humanChoice === computerChoice) {
+    roundMessage = `It's a tie!`;
+  } else if (ROCK === humanChoice) {
+    if (PAPER === computerChoice) {
+      roundMessage = buildRoundMessage(false, PAPER_BEATS_ROCK);
+      computerScore++;
+    }
+    else if (SCISSORS === computerChoice) {
+      roundMessage = buildRoundMessage(true, ROCK_BEATS_SCISSORS);
+      humanScore++;
+    }
+  } else if (PAPER === humanChoice) {
+    if (SCISSORS === computerChoice) {
+      roundMessage = buildRoundMessage(false, SCISSORS_BEATS_PAPER);
+      computerScore++;
+    } else if (ROCK === computerChoice) {
+      roundMessage = buildRoundMessage(true, PAPER_BEATS_ROCK);
+      humanScore++;
+    }
+  } else if (SCISSORS === humanChoice) {
+    if (ROCK === computerChoice) {
+      roundMessage = buildRoundMessage(false, ROCK_BEATS_SCISSORS);
+      computerScore++;
+    } else if (PAPER === computerChoice) {
+      roundMessage = buildRoundMessage(true, SCISSORS_BEATS_PAPER);
+      humanScore++;
+    }
+  }
+  return roundMessage;
+}
+
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
+  const roundMessage = scoreRound(humanChoice, computerChoice);
+
+  console.log(roundMessage);
+}
+
+let buttonPanel = document.querySelector('#button-panel');
+
+buttonPanel.addEventListener('click', (event) => {
+  let target = event.target;
+
+  switch (target.id) {
+    case 'rock-button':
+      playRound(ROCK);
+      break;
+    case 'paper-button':
+      playRound(PAPER);
+      break;
+    case 'scissors-button':
+      playRound(SCISSORS);
+      break;
+  }
+});
 
 // playGame();
