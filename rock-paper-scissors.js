@@ -8,6 +8,8 @@ const SCISSORS_BEATS_PAPER = `${SCISSORS} cut ${PAPER}`;
 
 const WINNING_SCORE = 5;
 
+let roundNumber = 0;  // the number of the current round of play
+
 let humanScoreElement = document.querySelector('#human-score');
 let computerScoreElement = document.querySelector('#computer-score');
 
@@ -17,6 +19,7 @@ let computerScore = Number(computerScoreElement.textContent);
 let buttonPanel = document.querySelector('#button-panel');
 
 buttonPanel.addEventListener('click', (event) => {
+  roundNumber++;
   let target = event.target;
 
   switch (target.id) {
@@ -39,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
   const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
 
   const historyText =
-    `<p>---</p>
+    `<p>--- Round ${roundNumber}</p>
     <p>Rock...Paper...Scissors...Shoot!</p>
     <p></p>
     <p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
