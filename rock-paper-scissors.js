@@ -5,6 +5,9 @@ const SCISSORS = "SCISSORS";
 let humanScoreElement = document.querySelector('#human-score');
 let computerScoreElement = document.querySelector('#computer-score');
 
+let humanScore = Number(humanScoreElement.textContent);
+let computerScore = Number(computerScoreElement.textContent);
+
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random()*3);
 
@@ -47,15 +50,13 @@ ${finalMessage}`
 
 }
 
-function updateScores(humanScore, computerScore) {
+function updateScoreboard() {
   humanScoreElement.textContent = humanScore;
   computerScoreElement.textContent = computerScore;
 }
 
 function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
   let roundMessage = "";
-  let humanScore = Number(humanScoreElement.textContent);
-  let computerScore = Number(computerScoreElement.textContent);
 
   if (humanChoice === computerChoice) {
     roundMessage = `It's a tie!`;
@@ -86,7 +87,7 @@ function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
     }
   }
 
-  updateScores(humanScore, computerScore);
+  updateScoreboard();
 
   return roundMessage;
 }
