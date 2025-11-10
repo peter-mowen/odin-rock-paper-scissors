@@ -1,3 +1,18 @@
 body {
   font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: #dc793e;
+}
+
+button {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: #dc793e;
+  border-color: #dc793e;
+  border-radius: 5em;
+}
+
+button:hover {
+  background-color: #dc793e;
+  color: black;
 }
