@@ -9,7 +9,7 @@
         [x] Buttons for ROCK, PAPER, and SCISSORS
     [ ] Game History
 [ ] Add styling
-    [ ] Large numbers for scoreboard
+    [x] Large numbers for scoreboard
     [ ] Center content on page
     [x] Amber glow text color
     [x] Black background

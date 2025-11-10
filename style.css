@@ -9,10 +9,35 @@ button {
   background-color: black;
   color: #dc793e;
   border-color: #dc793e;
-  border-radius: 5em;
+  border-radius: 1em;
 }
 
 button:hover {
   background-color: #dc793e;
   color: black;
+}
+
+.scoreboard {
+  text-align: center;
+  border-collapse: collapse;
+  border-color: #dc793e;
+  table-layout: fixed;
+  max-width: 200px;
+  width: 100%;
+}
+
+th, td {
+  padding: 0px 10px 0px 10px;
+}
+
+.scoreboard-number {
+  font-size: 5em;
+}
+
+.scoreboard-header {
+  border-bottom: 1px solid;
+}
+
+.vertical-border {
+  border-right: 1px solid;
 }
