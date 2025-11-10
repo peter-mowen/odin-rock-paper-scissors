@@ -1,13 +1,13 @@
 # Rock Paper Scissors UI Work Breakdown Structure
 
-[ ] Write HTML for page layout
+[x] Write HTML for page layout
     [x] Title and Subtitle
     [x] Scoreboard
         [x] Human and Computer
         [x] Scores start at 0
     [x] Button panel
         [x] Buttons for ROCK, PAPER, and SCISSORS
-    [ ] Game History
+    [x] Game History
 [ ] Add styling
     [x] Large numbers for scoreboard
     [x] Center content on page
