@@ -2,6 +2,10 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   color: #dc793e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {

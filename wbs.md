@@ -10,7 +10,7 @@
     [ ] Game History
 [ ] Add styling
     [x] Large numbers for scoreboard
-    [ ] Center content on page
+    [x] Center content on page
     [x] Amber glow text color
     [x] Black background
     [x] Amber glow button border color
