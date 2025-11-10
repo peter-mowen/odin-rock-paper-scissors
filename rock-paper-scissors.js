@@ -8,6 +8,11 @@ let computerScoreElement = document.querySelector('#computer-score');
 let humanScore = Number(humanScoreElement.textContent);
 let computerScore = Number(computerScoreElement.textContent);
 
+let rockButton = document.querySelector('#rock-button');
+let paperButton = document.querySelector('#paper-button');
+let scissorsButton = document.querySelector('#scissors-button');
+let playAgainButton = document.querySelector('#play-again-button');
+
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random()*3);
 
@@ -109,6 +114,11 @@ function playRound(humanChoice) {
     let finalMessage = getFinalMessage();
 
     gameHistory.innerHTML = finalMessage + gameHistory.innerHTML;
+
+    rockButton.hidden = true;
+    paperButton.hidden = true;
+    scissorsButton.hidden = true;
+    playAgainButton.hidden = false;
   }
 }
 
@@ -126,6 +136,9 @@ buttonPanel.addEventListener('click', (event) => {
       break;
     case 'scissors-button':
       playRound(SCISSORS);
+      break;
+    case 'play-again-button':
+      window.location.reload();
       break;
   }
 });
