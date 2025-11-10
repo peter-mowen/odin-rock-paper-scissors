@@ -2,16 +2,69 @@ const ROCK = "ROCK";
 const PAPER = "PAPER";
 const SCISSORS = "SCISSORS";
 
+const PAPER_BEATS_ROCK = `${PAPER} covers ${ROCK}`;
+const ROCK_BEATS_SCISSORS = `${ROCK} smashes ${SCISSORS}`;
+const SCISSORS_BEATS_PAPER = `${SCISSORS} cut ${PAPER}`;
+
+const WINNING_SCORE = 5;
+
 let humanScoreElement = document.querySelector('#human-score');
 let computerScoreElement = document.querySelector('#computer-score');
 
 let humanScore = Number(humanScoreElement.textContent);
 let computerScore = Number(computerScoreElement.textContent);
 
-let rockButton = document.querySelector('#rock-button');
-let paperButton = document.querySelector('#paper-button');
-let scissorsButton = document.querySelector('#scissors-button');
-let playAgainButton = document.querySelector('#play-again-button');
+let buttonPanel = document.querySelector('#button-panel');
+
+buttonPanel.addEventListener('click', (event) => {
+  let target = event.target;
+
+  switch (target.id) {
+    case 'rock-button':
+      playRound(ROCK, getComputerChoice());
+      break;
+    case 'paper-button':
+      playRound(PAPER, getComputerChoice());
+      break;
+    case 'scissors-button':
+      playRound(SCISSORS, getComputerChoice());
+      break;
+    case 'play-again-button':
+      window.location.reload();
+      break;
+  }
+});
+
+function playRound(humanChoice, computerChoice) {
+  const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
+
+  const historyText =
+    `<p>---</p>
+    <p>Rock...Paper...Scissors...Shoot!</p>
+    <p></p>
+    <p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
+    <p>${roundMessage}</p>`;
+
+  let gameHistory = document.querySelector('#game-history-body');
+
+  gameHistory.innerHTML = historyText + gameHistory.innerHTML;
+
+  if ((humanScore === WINNING_SCORE) || (computerScore == WINNING_SCORE)) {
+    let finalMessage = getFinalMessage();
+
+    gameHistory.innerHTML = finalMessage + gameHistory.innerHTML;
+
+    let rockButton = document.querySelector('#rock-button');
+    let paperButton = document.querySelector('#paper-button');
+    let scissorsButton = document.querySelector('#scissors-button');
+    let playAgainButton = document.querySelector('#play-again-button');
+
+    rockButton.hidden = true;
+    paperButton.hidden = true;
+    scissorsButton.hidden = true;
+    playAgainButton.hidden = false;
+  }
+}
 
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random()*3);
@@ -25,21 +78,6 @@ function getComputerChoice() {
   } else {
     return null;
   }
-}
-
-const PAPER_BEATS_ROCK = `${PAPER} covers ${ROCK}`;
-const ROCK_BEATS_SCISSORS = `${ROCK} smashes ${SCISSORS}`;
-const SCISSORS_BEATS_PAPER = `${SCISSORS} cut ${PAPER}`;
-
-function buildRoundMessage(bWinOrLoose, phrase)
-{
-  let winOrLose = bWinOrLoose ? "win" : "lose";
-  return `${phrase}! You ${winOrLose} this round!`;
-}
-
-function updateScoreboard() {
-  humanScoreElement.textContent = humanScore;
-  computerScoreElement.textContent = computerScore;
 }
 
 function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
@@ -79,8 +117,19 @@ function updateScoreboardAndGetRoundMessage(humanChoice, computerChoice) {
   return roundMessage;
 }
 
+function buildRoundMessage(win, phrase)
+{
+  let winOrLose = win ? "win" : "lose";
+  return `${phrase}! You ${winOrLose} this round!`;
+}
+
+function updateScoreboard() {
+  humanScoreElement.textContent = humanScore;
+  computerScoreElement.textContent = computerScore;
+}
+
 function getFinalMessage() {
-  let finalMessage = `<p>Final score - You : ${humanScore}, Computer: ${computerScore}</p>\n`;
+  let finalMessage = `<p>Final score - You: ${humanScore}, Computer: ${computerScore}</p>\n`;
 
   finalMessage += "<p>";
 
@@ -94,53 +143,3 @@ function getFinalMessage() {
 
   return finalMessage;
 }
-
-function playRound(humanChoice) {
-  const computerChoice = getComputerChoice();
-  const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
-
-  const historyText =
-`<p>---</p>
-<p>Rock...Paper...Scissors...Shoot!</p>
-<p></p>
-<p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
-<p>${roundMessage}</p>`;
-
-  let gameHistory = document.querySelector('#game-history-body');
-
-  gameHistory.innerHTML = historyText + gameHistory.innerHTML;
-
-  if ((humanScore === 5) || (computerScore == 5)) {
-    let finalMessage = getFinalMessage();
-
-    gameHistory.innerHTML = finalMessage + gameHistory.innerHTML;
-
-    rockButton.hidden = true;
-    paperButton.hidden = true;
-    scissorsButton.hidden = true;
-    playAgainButton.hidden = false;
-  }
-}
-
-let buttonPanel = document.querySelector('#button-panel');
-
-buttonPanel.addEventListener('click', (event) => {
-  let target = event.target;
-
-  switch (target.id) {
-    case 'rock-button':
-      playRound(ROCK);
-      break;
-    case 'paper-button':
-      playRound(PAPER);
-      break;
-    case 'scissors-button':
-      playRound(SCISSORS);
-      break;
-    case 'play-again-button':
-      window.location.reload();
-      break;
-  }
-});
-
-// playGame();

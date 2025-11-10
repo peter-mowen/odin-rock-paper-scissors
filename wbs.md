@@ -22,11 +22,11 @@
         [x] Determine winner
         [x] Update scoreboard
         [x] Update Game History with round message
-        [ ] When someone gets 5 points, the game is over
-            [ ] Remove ROCK, PAPER, SCISSORS buttons
-            [ ] Add the PLAY AGAIN button
-    [ ] On PLAY AGAIN
-        [ ] Reset the score
-        [ ] Reset the game history
-        [ ] Add the ROCK, PAPER, and SCISSORS buttons
-        [ ] Remove the PLAY AGAIN button
+        [x] When someone gets 5 points, the game is over
+            [x] Remove ROCK, PAPER, SCISSORS buttons
+            [x] Add the PLAY AGAIN button
+    [x] On PLAY AGAIN
+        [x] Reset the score
+        [x] Reset the game history
+        [x] Add the ROCK, PAPER, and SCISSORS buttons
+        [x] Remove the PLAY AGAIN button
