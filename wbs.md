@@ -11,6 +11,11 @@
 [ ] Add styling
     [ ] Large numbers for scoreboard
     [ ] Center content on page
+    [ ] Amber glow text color
+    [ ] Black background
+    [ ] Amber glow button border color
+    [ ] Round button corners
+    [ ] Monospaced font
 [ ] Write Javascript logic
     [ ] On button click, play round by passing player choice to game
     [ ] On play round
