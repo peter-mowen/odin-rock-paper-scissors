@@ -107,7 +107,22 @@ function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
   const roundMessage = scoreRound(humanChoice, computerChoice);
 
-  console.log(roundMessage);
+  const historyText =
+`<p>---</p>
+<p>Rock...Paper...Scissors...Shoot!</p>
+<p></p>
+<p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
+<p>${roundMessage}</p>`;
+
+  console.log(historyText);
+
+  let gameHistory = document.querySelector('#game-history-body');
+
+  gameHistory.innerHTML =
+`${historyText}
+${gameHistory.innerHTML}
+`
+  console.log(gameHistory.innerHTML);
 }
 
 let buttonPanel = document.querySelector('#button-panel');
