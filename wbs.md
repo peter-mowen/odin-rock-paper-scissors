@@ -15,7 +15,7 @@
     [ ] Black background
     [ ] Amber glow button border color
     [ ] Round button corners
-    [ ] Monospaced font
+    [x] Monospaced font
 [ ] Write Javascript logic
     [ ] On button click, play round by passing player choice to game
     [ ] On play round
