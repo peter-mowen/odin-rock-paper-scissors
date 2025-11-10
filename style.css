@@ -49,3 +49,7 @@ th, td {
 .vertical-border {
   border-right: 1px solid;
 }
+
+#game-history-title {
+  text-decoration: underline #dc793e solid;
+}
