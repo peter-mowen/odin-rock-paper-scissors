@@ -47,8 +47,6 @@ function playRound(humanChoice, computerChoice) {
   let roundPreamble = document.createElement('p');
   roundPreamble.textContent = 'Rock...Paper...Scissors...Shoot!';
 
-  let roundBlankLine = document.createElement('p');
-
   let roundResults = document.createElement('p');
   roundResults.textContent = `You threw ${humanChoice} and the computer threw ${computerChoice}`;
 
@@ -58,7 +56,6 @@ function playRound(humanChoice, computerChoice) {
   let roundDiv = document.createElement('div');
   roundDiv.appendChild(roundTitle);
   roundDiv.appendChild(roundPreamble);
-  roundDiv.appendChild(roundBlankLine);
   roundDiv.appendChild(roundResults);
   roundDiv.appendChild(roundPostScript);
 
@@ -149,8 +146,6 @@ function getFinalMessageDiv() {
   let finalMessage = document.createElement('p');
   finalMessage.textContent = `Final score - You: ${humanScore}, Computer: ${computerScore}`;
 
-  let finalMessageBlankLine = document.createElement('p');
-
   let finalMessageResult = document.createElement('p');
   if (humanScore === 5) {
     finalMessageResult.textContent = "Congratulations, you win!";
@@ -160,7 +155,6 @@ function getFinalMessageDiv() {
 
   let finalMessageDiv = document.createElement('div');
   finalMessageDiv.appendChild(finalMessage);
-  finalMessageDiv.appendChild(finalMessageBlankLine);
   finalMessageDiv.appendChild(finalMessageResult);
 
   return finalMessageDiv;
