@@ -31,6 +31,10 @@ button:hover {
   color: black;
 }
 
+.invisible {
+  display: none;
+}
+
 #button-panel {
   margin: 20px;
 }

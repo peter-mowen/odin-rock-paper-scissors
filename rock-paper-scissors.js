@@ -76,10 +76,10 @@ function playRound(humanChoice, computerChoice) {
     let scissorsButton = document.querySelector('#scissors-button');
     let playAgainButton = document.querySelector('#play-again-button');
 
-    rockButton.hidden = true;
-    paperButton.hidden = true;
-    scissorsButton.hidden = true;
-    playAgainButton.hidden = false;
+    rockButton.classList.add('invisible');
+    paperButton.classList.add('invisible');
+    scissorsButton.classList.add('invisible');
+    playAgainButton.classList.remove('invisible');
   }
 }
 
