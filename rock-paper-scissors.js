@@ -41,21 +41,35 @@ buttonPanel.addEventListener('click', (event) => {
 function playRound(humanChoice, computerChoice) {
   const roundMessage = updateScoreboardAndGetRoundMessage(humanChoice, computerChoice);
 
-  const historyText =
-    `<p>--- Round ${roundNumber}</p>
-    <p>Rock...Paper...Scissors...Shoot!</p>
-    <p></p>
-    <p>You threw ${humanChoice} and the computer threw ${computerChoice}</p>
-    <p>${roundMessage}</p>`;
+  let roundTitle = document.createElement('p');
+  roundTitle.textContent = `--- Round ${roundNumber}`;
+
+  let roundPreamble = document.createElement('p');
+  roundPreamble.textContent = 'Rock...Paper...Scissors...Shoot!';
+
+  let roundBlankLine = document.createElement('p');
+
+  let roundResults = document.createElement('p');
+  roundResults.textContent = `You threw ${humanChoice} and the computer threw ${computerChoice}`;
+
+  let roundPostScript = document.createElement('p');
+  roundPostScript.textContent = roundMessage;
+
+  let roundDiv = document.createElement('div');
+  roundDiv.appendChild(roundTitle);
+  roundDiv.appendChild(roundPreamble);
+  roundDiv.appendChild(roundBlankLine);
+  roundDiv.appendChild(roundResults);
+  roundDiv.appendChild(roundPostScript);
 
   let gameHistory = document.querySelector('#game-history-body');
 
-  gameHistory.innerHTML = historyText + gameHistory.innerHTML;
+  gameHistory.insertBefore(roundDiv, gameHistory.firstChild);
 
   if ((humanScore === WINNING_SCORE) || (computerScore == WINNING_SCORE)) {
-    let finalMessage = getFinalMessage();
+    let finalMessageDiv = getFinalMessageDiv();
 
-    gameHistory.innerHTML = finalMessage + gameHistory.innerHTML;
+    gameHistory.insertBefore(finalMessageDiv, gameHistory.firstChild);
 
     let rockButton = document.querySelector('#rock-button');
     let paperButton = document.querySelector('#paper-button');
@@ -131,18 +145,23 @@ function updateScoreboard() {
   computerScoreElement.textContent = computerScore;
 }
 
-function getFinalMessage() {
-  let finalMessage = `<p>Final score - You: ${humanScore}, Computer: ${computerScore}</p>\n`;
+function getFinalMessageDiv() {
+  let finalMessage = document.createElement('p');
+  finalMessage.textContent = `Final score - You: ${humanScore}, Computer: ${computerScore}`;
 
-  finalMessage += "<p>";
+  let finalMessageBlankLine = document.createElement('p');
 
+  let finalMessageResult = document.createElement('p');
   if (humanScore === 5) {
-    finalMessage += "Congratulations, you win!";
+    finalMessageResult.textContent = "Congratulations, you win!";
   } else {
-    finalMessage += "Better luck next time, you lose!";
+    finalMessageResult.textContent = "Better luck next time, you lose!";
   }
 
-  finalMessage += "</p>";
+  let finalMessageDiv = document.createElement('div');
+  finalMessageDiv.appendChild(finalMessage);
+  finalMessageDiv.appendChild(finalMessageBlankLine);
+  finalMessageDiv.appendChild(finalMessageResult);
 
-  return finalMessage;
+  return finalMessageDiv;
 }
