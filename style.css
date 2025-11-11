@@ -15,7 +15,7 @@ body {
   width: 100%;
 }
 
-button {
+.button {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   color: #dc793e;
@@ -26,7 +26,7 @@ button {
   padding: 10px;
 }
 
-button:hover {
+.button:hover {
   background-color: #dc793e;
   color: black;
 }
