@@ -26,7 +26,7 @@ body {
   padding: 10px;
 }
 
-.button:hover {
+.button:active {
   background-color: #dc793e;
   color: black;
 }
